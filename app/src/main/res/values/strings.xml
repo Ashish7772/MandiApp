@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MandiApp</string>
+
+    <string-array name="crop">
+        <item>Mustard</item>
+        <item>Wheat</item>
+        <item>Chana</item>
+        <item>Bajra</item>
+        <item>Cotton</item>
+        <item>Guar</item>
+        <item>Mung</item>
+        <item>Fenugreek(Methi)</item>
+        <item>Barley</item>
+        <item>Peas(Matter)</item>
+    </string-array>
+</resources>

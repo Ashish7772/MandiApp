@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".crop">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/purple_500">
+
+
+
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textColor="@color/white"
+         android:text="Save Crop"
+         android:textSize="25dp"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="30dp"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="120dp"
+            android:background="@drawable/roundlayout">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/purple_500"
+                android:layout_marginTop="15dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SerialNo."
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weight"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"/>
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview1"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total:-"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/purple_500"
+                android:layout_below="@+id/recyclerview1"
+                android:layout_margin="15dp"/>
+
+            <TextView
+                android:id="@+id/TotalWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="00"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/purple_500"
+                android:layout_below="@+id/recyclerview1"
+                android:layout_alignParentRight="true"
+                android:layout_margin="15dp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/weight5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/total"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginRight="25dp"
+                android:textColor="@color/Gray"
+                app:hintTextColor="@color/Gray">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#E5E4Ef"
+                    android:hint="Weight"
+                    android:inputType="numberDecimal|number"
+                    android:textColor="@color/Gray"
+                    android:textColorHint="@color/Gray"
+                    android:drawableRight="@drawable/weight"
+                    android:textSize="20dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/weight5"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:text="NEXT"
+                android:textSize="20dp"
+                android:padding="15dp"/>
+
+
+
+            <Button
+                android:id="@+id/createPdf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/next"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:text="CREATE PDF"
+                android:textSize="20dp"
+                android:padding="15dp"/>
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
