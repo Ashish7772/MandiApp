@@ -1,30 +1,25 @@
 package com.example.mandiapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
 public class FarmerDetails extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private Spinner cropDetails;
-    private EditText farmerName,phoneNo,address;
+    private EditText farmerName,phoneNo,address,cropDetails;
     private TextView selectDate;
     private Button submit;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -39,8 +34,6 @@ public class FarmerDetails extends AppCompatActivity implements AdapterView.OnIt
         address = findViewById(R.id.address);
         selectDate = findViewById(R.id.date);
         submit = findViewById(R.id.submit);
-        
-        populateSpinnercropDetails();
 
         dateDisplay();
 
@@ -49,7 +42,7 @@ public class FarmerDetails extends AppCompatActivity implements AdapterView.OnIt
             public void onClick(View view) {
 
                 String selectDate2 = selectDate.getText().toString();
-                String crop= cropDetails.getSelectedItem().toString();
+                String crop= cropDetails.getText().toString();
                 String farmer=farmerName.getText().toString();
                 String phone=phoneNo.getText().toString();
                 String address2=address.getText().toString();
@@ -126,14 +119,6 @@ public class FarmerDetails extends AppCompatActivity implements AdapterView.OnIt
 
     }
 
-    private void populateSpinnercropDetails() {
-
-        ArrayAdapter<String> departmentAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.crop));
-        departmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        cropDetails.setAdapter(departmentAdapter);
-        cropDetails.setOnItemSelectedListener(this);
-    }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)

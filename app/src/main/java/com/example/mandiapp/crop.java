@@ -1,9 +1,12 @@
 package com.example.mandiapp;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -52,6 +56,11 @@ public class crop extends AppCompatActivity {
         getAddress = getIntent().getExtras().getString("keyname4");
         getSelectDate = getIntent().getExtras().getString("keyname5");
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
         recyclerView = findViewById(R.id.recyclerview1);
         TotalWeight = findViewById(R.id.TotalWeight);
         weight = findViewById(R.id.weight);
@@ -71,6 +80,24 @@ public class crop extends AppCompatActivity {
             public void onSwiped(@NonNull  RecyclerView.ViewHolder viewHolder, int direction) {
                 itemList.remove(viewHolder.getAdapterPosition());
                 adapter.notifyDataSetChanged();
+
+
+                for (int j=0;j<itemList.size();j++){
+                    cropModel a = itemList.get(j);
+                    String serial=String.valueOf(1+j);
+                    a.setSerial(serial);
+                  //  Toast.makeText(crop.this,""+a.getSerial() +" " + a.getString(), Toast.LENGTH_SHORT).show();
+                }
+
+
+//                String weight1 = weight.getText().toString();
+//                String serial=String.valueOf(1+adapter.getItemCount());
+//                cropModel cpModel = new cropModel(serial,weight1);
+//                itemList.add(cpModel.setSerial());
+//                weight.setText("");
+//                adapter.notifyItemInserted(itemList.size()-1);
+
+                addSum();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -89,29 +116,12 @@ public class crop extends AppCompatActivity {
                 }
                 else{
                     try {
-                        String weight1 = weight.getText().toString();
-                        String serial=String.valueOf(1+adapter.getItemCount());
-                        cropModel cpModel = new cropModel(serial,weight1);
-                        itemList.add(cpModel);
-                        weight.setText("");
-
-                        adapter.notifyItemInserted(itemList.size()-1);
-
+                        addSerial();
 
                     }catch (NumberFormatException e){
 
                     }
-                    double b=0,c=0;
-                    for (int i=0;i<itemList.size();i++)
-                    {
-                        cropModel cropModel= itemList.get(i);
-                        String weight3= cropModel.getString();
-                        double a = Double.parseDouble(weight3);
-                            c=b+a;
-                            b=c;
-                    }
-                    String sum = String.valueOf(c);
-                    TotalWeight.setText(sum);
+                 addSum();
                 }
 
             }
@@ -164,11 +174,11 @@ public class crop extends AppCompatActivity {
         for (int i=0;i<itemList.size();i++)
         {
             cropModel cropModel= itemList.get(i);
-            String weight4= cropModel.getString();
+            String weight2= cropModel.getString();
             String SerialNo= cropModel.getSerial();
 
             table2.addCell(SerialNo);
-            table2.addCell(weight4).setBold().setFontSize(15);
+            table2.addCell(weight2).setFontSize(15);
         }
         document.add(table2);
         double b=0,c=0;
@@ -182,11 +192,101 @@ public class crop extends AppCompatActivity {
         }
         String sum = String.valueOf(c);
 
-        table.addCell("TOTAL");
-        table.addCell(sum);
+        table.addCell("TOTAL").setBold().setFontSize(15);
+        table.addCell(sum).setBold().setFontSize(15);
         document.add(table);
         document.close();
-        Toast.makeText(this,"Pdf Created",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Save " +pdfPath,Toast.LENGTH_LONG).show();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        AlertDialog alertbox = new AlertDialog.Builder(this)
+                .setMessage("Do you want to exit this record?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        finish();
+                        //close();
+
+
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+                    }
+                })
+                .show();
+
+
+        return super.onOptionsItemSelected(item);
+    }
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exitByBackKey();
+
+            //moveTaskToBack(false);
+
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    protected void exitByBackKey() {
+
+        AlertDialog alertbox = new AlertDialog.Builder(this)
+                .setMessage("Do you want to exit this record?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        finish();
+                        //close();
+
+
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+                    }
+                })
+                .show();
+
+    }
+
+    public void addSerial()
+    {
+
+        String weight1 = weight.getText().toString();
+        String serial=String.valueOf(1+adapter.getItemCount());
+        cropModel cpModel = new cropModel(serial,weight1);
+        itemList.add(cpModel);
+        weight.setText("");
+
+        adapter.notifyItemInserted(itemList.size()-1);
+
+
+    }
+
+    public void addSum()
+    {
+        double b=0.0,c=0.0;
+        for (int i=0;i<itemList.size();i++)
+        {
+            cropModel cropModel= itemList.get(i);
+            String weight3= cropModel.getString();
+            double a = Double.parseDouble(weight3);
+            c=b+a;
+            b=c;
+        }
+        String sum = String.valueOf(c);
+        TotalWeight.setText(sum);
     }
 
 }

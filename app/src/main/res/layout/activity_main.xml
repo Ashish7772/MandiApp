@@ -16,22 +16,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ashish Aggarwal"
+        android:text="AAA"
         android:textColor="@color/Gray"
         android:textStyle="bold"
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_margin="5dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="9467737772"
-        android:textColor="@color/Gray"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="5dp"/>
 
 </RelativeLayout>
