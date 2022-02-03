@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/layoutkeyboard"
     android:fillViewport="true"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".FarmerDetails">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,131 +46,146 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/spinnerCrop5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fillDetails"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="27dp"
+                android:layout_marginTop="87dp"
                 android:layout_marginRight="25dp"
-                android:textColor="@color/Gray"
-                app:hintTextColor="@color/Gray">
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/purple_700"
+                app:hintTextColor="@color/purple_700">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/spinnerCrop"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#E5E4Ef"
+                    android:layout_below="@+id/fillDetails"
+                    android:drawableRight="@drawable/weight"
                     android:hint="Enter Crop Name"
-                    android:drawableRight="@drawable/name"
                     android:inputType="textPersonName"
-                    android:textColor="@color/Gray"
-                    android:textColorHint="@color/Gray"
-                    android:textSize="20dp" />
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="18dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/farmerName5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/spinnerCrop5"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="27dp"
                 android:layout_marginRight="25dp"
-                android:textColor="@color/Gray"
-                app:hintTextColor="@color/Gray">
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/purple_700"
+                app:hintTextColor="@color/purple_700">>
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/farmerName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#E5E4Ef"
-                    android:hint="FARMERNAME"
                     android:drawableRight="@drawable/name"
+                    android:hint="FARMERNAME"
                     android:inputType="textPersonName"
-                    android:textColor="@color/Gray"
-                    android:textColorHint="@color/Gray"
-                    android:textSize="20dp" />
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="18dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phoneNo5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/farmerName5"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="27dp"
                 android:layout_marginRight="25dp"
-                android:textColor="@color/Gray"
-                app:hintTextColor="@color/Gray">
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/purple_700"
+                app:hintTextColor="@color/purple_700">>
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phoneNo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#E5E4Ef"
+                    android:drawableRight="@drawable/phone"
                     android:hint="PHONENO"
                     android:inputType="number"
-                    android:textColor="@color/Gray"
-                    android:textColorHint="@color/Gray"
-                    android:drawableRight="@drawable/phone"
-                    android:textSize="20dp" />
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="18dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/address5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/phoneNo5"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="27dp"
                 android:layout_marginRight="25dp"
-                android:textColor="@color/Gray"
-                app:hintTextColor="@color/Gray">
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/purple_700"
+                app:hintTextColor="@color/purple_700">>
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/address"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#E5E4Ef"
+                    android:drawableRight="@drawable/address"
                     android:hint="ADDRESS"
                     android:inputType="text"
-                    android:textColor="@color/Gray"
-                    android:textColorHint="@color/Gray"
-                    android:drawableRight="@drawable/address"
-                    android:textSize="20dp" />
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="18dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/date"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Select Date"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/Gray"
                 android:layout_below="@+id/address5"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="25dp"
+                android:background="@drawable/text_background"
                 android:backgroundTintMode="add"
-                android:drawableRight="@drawable/calender"/>
+                android:drawableRight="@drawable/calender"
+                android:padding="15dp"
+                android:hint="Select Date"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="18dp" />
 
             <Button
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/date"
-                android:layout_marginTop="40dp"
                 android:layout_marginLeft="25dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="25dp"
+                android:padding="15dp"
                 android:text="SUBMIT"
-                android:textSize="20dp"
-                android:padding="15dp"/>
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
                 android:text="AAA"
-                android:textColor="@color/Gray"
-                android:layout_margin="5dp"/>
+                android:textColor="@color/Gray" />
         </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

@@ -1,5 +1,4 @@
 package com.example.mandiapp;
-
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
@@ -32,6 +31,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 
@@ -89,13 +89,6 @@ public class crop extends AppCompatActivity {
                   //  Toast.makeText(crop.this,""+a.getSerial() +" " + a.getString(), Toast.LENGTH_SHORT).show();
                 }
 
-
-//                String weight1 = weight.getText().toString();
-//                String serial=String.valueOf(1+adapter.getItemCount());
-//                cropModel cpModel = new cropModel(serial,weight1);
-//                itemList.add(cpModel.setSerial());
-//                weight.setText("");
-//                adapter.notifyItemInserted(itemList.size()-1);
 
                 addSum();
             }
@@ -285,8 +278,9 @@ public class crop extends AppCompatActivity {
             c=b+a;
             b=c;
         }
-        String sum = String.valueOf(c);
-        TotalWeight.setText(sum);
+        double sum = c ;
+        double number2 = (int)(Math.round(sum * 100))/100.0;
+        TotalWeight.setText(new DecimalFormat("##.##").format(number2));
     }
 
 }

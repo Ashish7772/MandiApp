@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/My Own Projects/Android/MandiApp/app/src/main/res/drawable/roundlayout.xml" value="0.1695" />
+        <entry key="..\:/My Own Projects/Android/MandiApp/app/src/main/res/drawable/text_background.xml" value="0.1695" />
+        <entry key="..\:/My Own Projects/Android/MandiApp/app/src/main/res/layout/activity_crop.xml" value="0.25" />
         <entry key="..\:/My Own Projects/Android/MandiApp/app/src/main/res/layout/activity_farmer_details.xml" value="0.25" />
         <entry key="..\:/My Own Projects/Android/MandiApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
       </map>

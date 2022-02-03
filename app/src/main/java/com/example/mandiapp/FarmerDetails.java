@@ -6,7 +6,9 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -36,6 +38,17 @@ public class FarmerDetails extends AppCompatActivity implements AdapterView.OnIt
         submit = findViewById(R.id.submit);
 
         dateDisplay();
+
+
+        //keyboard hide when click outside the edittext
+        findViewById(R.id.layoutkeyboard).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                return true;
+            }
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
